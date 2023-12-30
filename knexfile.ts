@@ -1,6 +1,6 @@
-require('dotenv').config({ path: '.env.development' });
+require('dotenv').config({ path: '.env' })
 
-import type { Knex } from 'knex';
+import type { Knex } from 'knex'
 
 const config: Knex.Config = {
   client: 'pg',
@@ -8,6 +8,6 @@ const config: Knex.Config = {
   migrations: {
     extension: 'ts',
   },
-};
+}
 
-export default config;
+export default config
