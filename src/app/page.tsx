@@ -5,7 +5,8 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <button>Generate Posts</button>
+      <h1>Post list</h1>
+      <span>-----</span>
 
       {posts.map((post) => (
         <div key={post.id}> {post.content}</div>

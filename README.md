@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Postgres Docker
+
+This is a Next.js application using Docker for containerization and pnpm for package management. It includes PostgreSQL integration using Prisma ORM.
+
+## Prerequisites
+
+- Docker installed on your machine
+- pnpm installed globally (`npm install -g pnpm`)
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy of this project up and running, follow these simple steps:
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/henzogomes/nextjs-postgres-docker.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate into the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd nextjs-postgres-docker
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install dependencies using pnpm:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Running the Application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the Next.js application with Docker, execute the following command:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+docker-compose up
+```
 
-## Deploy on Vercel
+This command will build the Docker containers.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Start the Next.js development server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+pnpm dev
+```
+
+## Prisma Studio
+
+Prisma Studio is a tool included with prisma to query the database
+
+```bash
+pnpx prisma studio
+```
+
+## DB Migration
+
+```bash
+pnpm db:migrate:make my-new-migration
+```
+
+## Scripts
+
+- `dev`: Start the Next.js development server.
+- `build`: Build the Next.js application for production.
+- `start`: Start the Next.js application in production mode.
+- `lint`: Run ESLint for code linting.
+- `db:migrate`: Run database migrations to update the database schema.
+- `db:migrate:undo`: Rollback the last database migration.
+- `db:migrate:make`: Create a new database migration file.
+
+## Dependencies
+
+- [@prisma/client](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client): Prisma Client for database access.
+- [dotenv](https://www.npmjs.com/package/dotenv): Loads environment variables from a `.env` file.
+- [knex](https://knexjs.org/): SQL query builder for Node.js.
+- [next](https://nextjs.org/): React framework for server-rendered applications.
+- [pg](https://node-postgres.com/): PostgreSQL client for Node.js.
+- [react](https://reactjs.org/): JavaScript library for building user interfaces.
+- [react-dom](https://reactjs.org/docs/react-dom.html): React package for working with the DOM.
+- [ts-node](https://github.com/TypeStrong/ts-node): TypeScript execution environment and REPL for Node.js.
+
+## Dev Dependencies
+
+- [@types/node](https://www.npmjs.com/package/@types/node): TypeScript definitions for Node.js.
+- [@types/react](https://www.npmjs.com/package/@types/react): TypeScript definitions for React.
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): TypeScript definitions for React DOM.
+- [autoprefixer](https://www.npmjs.com/package/autoprefixer): PostCSS plugin to parse CSS and add vendor prefixes.
+- [eslint](https://eslint.org/): JavaScript linter.
+- [eslint-config-next](https://github.com/vercel/eslint-config-next): ESLint configuration for Next.js projects.
+- [postcss](https://postcss.org/): CSS post-processor.
+- [prisma](https://www.prisma.io/): Modern database access toolkit for TypeScript.
+- [tailwindcss](https://tailwindcss.com/): Utility-first CSS framework for rapid UI development.
+- [typescript](https://www.typescriptlang.org/): JavaScript superset that adds static types to the language.
